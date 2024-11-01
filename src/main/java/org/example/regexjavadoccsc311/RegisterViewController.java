@@ -18,7 +18,13 @@ import javafx.stage.Stage;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class LoginViewController {
+
+/**
+ * Controls the Register page
+ *
+ * @author Nicholas Papazis
+ * */
+public class RegisterViewController {
 
 
     @FXML
