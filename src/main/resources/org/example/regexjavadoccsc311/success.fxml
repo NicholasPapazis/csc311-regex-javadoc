@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.regexjavadoccsc311.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@login-styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="shadow" fitHeight="400.0" fitWidth="441.0" layoutX="228.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@shadow.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="innerBox" layoutX="249.0" layoutY="52.0" prefHeight="456.0" prefWidth="403.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="127.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@bigCheck.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="card" layoutY="224.0" prefHeight="229.0" prefWidth="403.0">
+               <children>
+                  <Text fill="#727272" layoutX="44.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations, your account has been successfully created!" wrappingWidth="316.0">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="continueButton" layoutX="85.0" layoutY="133.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="233.0" text="Continue" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</Pane>

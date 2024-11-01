@@ -87,3 +87,16 @@
 
 }
 
+#continueButton {
+    -fx-background-color: #01A7D8;
+    -fx-text-fill: white;
+    -fx-font-size: 17;
+    -fx-font-weight: bold;
+}
+
+#card {
+    -fx-background-color: white;
+}
+
+
+
