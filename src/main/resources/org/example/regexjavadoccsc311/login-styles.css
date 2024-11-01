@@ -13,6 +13,16 @@
     -fx-background-radius: 5px;
 }
 
+#innerBox2 {
+    -fx-background-color: #009300;
+    -fx-border-width: 3px;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+
+
 #shadow {
     -fx-opacity: 0.30;
 }
@@ -96,6 +106,7 @@
 
 #card {
     -fx-background-color: white;
+    -fx-background-radius: 0px 0px 5px 5px;
 }
 
 

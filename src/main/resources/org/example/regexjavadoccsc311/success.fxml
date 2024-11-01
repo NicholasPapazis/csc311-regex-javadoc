@@ -15,14 +15,14 @@
             <Image url="@shadow.png" />
          </image>
       </ImageView>
-      <Pane fx:id="innerBox" layoutX="249.0" layoutY="52.0" prefHeight="456.0" prefWidth="403.0">
+      <Pane fx:id="innerBox2" layoutX="249.0" layoutY="52.0" prefHeight="456.0" prefWidth="403.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="127.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@bigCheck.png" />
+                  <Image url="@checkWhite.png" />
                </image>
             </ImageView>
-            <Pane fx:id="card" layoutY="224.0" prefHeight="229.0" prefWidth="403.0">
+            <Pane fx:id="card" layoutY="222.0" prefHeight="235.0" prefWidth="403.0">
                <children>
                   <Text fill="#727272" layoutX="44.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations, your account has been successfully created!" wrappingWidth="316.0">
                      <font>
