@@ -17,7 +17,6 @@ This JavaFX application is a registration form designed with input validations t
 - **Dynamic Button State**: "Register" button is enabled only when all fields contain valid data.
 - **Navigation**: Redirects to a new UI upon successful submission.
 
-## Requirements
 
-- **Java**: Ensure Java Development Kit (JDK) is installed.
-- **JavaFX**: JavaFX must be set up for your environment.
+## Demonstration of Usage
+![Untitled video - Made with Clipchamp](https://github.com/user-attachments/assets/c98c2fc4-db38-42d2-97c2-821b6c4e3042)
