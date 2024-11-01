@@ -83,5 +83,7 @@
 
 #registerBanner {
     -fx-background-color: #01A7D8;
+    -fx-background-radius: 0px 0px 5px 5px;
+
 }
 
