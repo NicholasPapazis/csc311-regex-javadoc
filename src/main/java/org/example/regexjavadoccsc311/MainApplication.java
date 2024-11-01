@@ -7,12 +7,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+
+public class MainApplication extends Application {
+
+    /**
+     * The main entry point for this application.  Initializes and displays the stage.
+     *
+     * @Param stage the main stage for this application.
+     * @throws IOException if an error occurs while loading the fxml file
+     * */
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 650);
-        stage.setTitle("Hello!");
+        stage.setTitle("Register");
         stage.setScene(scene);
         stage.show();
     }

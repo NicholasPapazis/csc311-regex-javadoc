@@ -290,6 +290,11 @@ public class LoginViewController {
 
     }
 
+    /**
+     * Checks if dob input field is valid
+     *
+     * @return true if dob in input field is valid, false otherwise
+     * */
     public boolean validateDOB() {
         final String regex = "(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(\\d{4})";
         String userInput = dobInput.getText();
@@ -318,6 +323,11 @@ public class LoginViewController {
 
     }
 
+    /**
+     * Checks if zip code input field is valid
+     *
+     * @return true if zip code in input field is valid, false otherwise
+     * */
     public boolean validateZipCode() {
         final String regex = "^\\d{5}$";
         String userInput = zipCodeInput.getText();
@@ -347,7 +357,11 @@ public class LoginViewController {
     }
 
 
-
+    /**
+     * Changes view to success.fxml
+     *
+     * @Param actionEvent the event that triggers this function to run.
+     * */
     public void navigateToHomeScreen(ActionEvent actionEvent) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("success.fxml"));
