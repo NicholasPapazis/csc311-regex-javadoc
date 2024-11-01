@@ -1,6 +1,7 @@
 package org.example.regexjavadoccsc311;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -63,87 +64,130 @@ public class LoginViewController {
     private Text alertTextZipCode;
 
     @FXML
+    private Button registerButton;
+
+    //tracks whether the user has attempted to input into the fields
+    private boolean firstNameClicked = false;
+    private boolean lastNameClicked = false;
+    private boolean emailClicked = false;
+    private boolean dobClicked = false;
+    private boolean zipCodeClicked = false;
+
+
+
+    @FXML
     public void initialize() {
-        //innerBox.requestFocus(); //removes focus from textFields
+
+        registerButton.setDisable(true); //initially disable the register button
+
+        //listen for changes in first name input field
         firstNameInput.textProperty().addListener((observable, oldValue, newValue) -> {
-            validateFirstName(); // Call validate method on text change
+            validateFirstName(); //re-validate first name
         });
+        //listen for changes in last name input field
         lastNameInput.textProperty().addListener((observable, oldValue, newValue) -> {
-            validateLastName();
+            validateLastName(); //re-validate last name
         });
+        //listen for changes in email input field
         emailInput.textProperty().addListener((observable, oldValue, newValue) -> {
-            validateEmail();
+            validateEmail(); //re-validate email
         });
+        //listen for changes in DOB input field
         dobInput.textProperty().addListener((observable, oldValue, newValue) -> {
-            validateDOB();
+            validateDOB(); //re-validate DOB
         });
+        //listen for changes in zip code input field
         zipCodeInput.textProperty().addListener((observable, oldValue, newValue) -> {
-            validateZipCode();
+            validateZipCode(); //re-validate zip code
         });
+
+
+        //constantly monitors all fields to check if all are valid
+        firstNameInput.textProperty().addListener((observable, oldValue, newValue) -> validateFields());
+        lastNameInput.textProperty().addListener((observable, oldValue, newValue) -> validateFields());
+        emailInput.textProperty().addListener((observable, oldValue, newValue) -> validateFields());
+        dobInput.textProperty().addListener((observable, oldValue, newValue) -> validateFields());
+        zipCodeInput.textProperty().addListener((observable, oldValue, newValue) -> validateFields());
+
+    }
+
+
+    private void validateFields() {
+        //check if all fields are valid
+        boolean allFieldsValid = validateFirstName() && validateLastName() && validateEmail() && validateDOB() && validateZipCode();
+
+        //enable register button if all fields are valid
+        registerButton.setDisable(!allFieldsValid);
     }
 
     public void firstNameInputClicked(MouseEvent mouseEvent) {
-        focusLostAll(mouseEvent);
-        firstNameInput.requestFocus();
+        firstNameClicked = true; //marks that uer has clicked this field
+        focusLostAll(mouseEvent); //lose focus on all input fields
+        firstNameInput.requestFocus(); //focus on name input field
         inputWrapperFN.setStyle("-fx-border-color: #3B8EDC"); //add border when clicked
     }
 
     public void lastNameInputClicked(MouseEvent mouseEvent) {
-        focusLostAll(mouseEvent);
-        lastNameInput.requestFocus();
+        lastNameClicked = true; //marks that user has clicked this field
+        focusLostAll(mouseEvent);//lose focus on all input fields
+        lastNameInput.requestFocus(); //focus on last name input field
         inputWrapperLN.setStyle("-fx-border-color: #3B8EDC"); //add border when clicked
 
     }
 
     public void emailInputClicked(MouseEvent mouseEvent) {
-        focusLostAll(mouseEvent);
-        emailInput.requestFocus();
+        emailClicked = true; //marks that user has clicked this field
+        focusLostAll(mouseEvent);//lose focus on all input fields
+        emailInput.requestFocus(); //focus on email input field
         inputWrapperEmail.setStyle("-fx-border-color: #3B8EDC"); //add border when clicked
 
     }
 
     public void dobInputClicked(MouseEvent mouseEvent) {
-        focusLostAll(mouseEvent);
-        dobInput.requestFocus();
+        dobClicked = true; //marks that user has clicked this field
+        focusLostAll(mouseEvent);//lose focus on all input fields
+        dobInput.requestFocus(); //focus on dob input field
         inputWrapperDOB.setStyle("-fx-border-color: #3B8EDC"); //add border when clicked
     }
 
     public void zipCodeInputClicked(MouseEvent mouseEvent) {
-        focusLostAll(mouseEvent);
-        zipCodeInput.requestFocus();
+        zipCodeClicked = true; //marks that user has clicked this field
+        focusLostAll(mouseEvent);//lose focus on all input fields
+        zipCodeInput.requestFocus(); //focus on zip code input field
         inputWrapperZipCode.setStyle("-fx-border-color: #3B8EDC"); //add border when clicked
     }
 
 
 
     public void focusLostFirstName(MouseEvent mouseEvent) {
-        inputWrapperFN.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
+        //inputWrapperFN.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
         validateFirstName(); //re-validate the input after focus is lost
     }
 
 
     public void focusLostLastName(MouseEvent mouseEvent) {
-        inputWrapperLN.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
+        //inputWrapperLN.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
         validateLastName(); //re-validate the input after focus is lost
     }
 
     public void focusLostEmail(MouseEvent mouseEvent) {
-        inputWrapperEmail.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
-        validateEmail();
+        //inputWrapperEmail.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
+        validateEmail(); //re-validate the input after focus is lost
     }
 
     public void focusLostDOB(MouseEvent mouseEvent) {
-        inputWrapperDOB.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
-        validateDOB();
+        //inputWrapperDOB.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
+        validateDOB(); //re-validate the input after focus is lost
     }
 
     public void focusLostZipCode(MouseEvent mouseEvent) {
-        inputWrapperZipCode.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
-        validateZipCode();
+        //inputWrapperZipCode.setStyle("-fx-border-color: transparent;"); //remove border when focus is lost
+        validateZipCode(); //re-validate the input after focus is lost
     }
 
     public void focusLostAll(MouseEvent mouseEvent) {
 
+        //lose focus on all input fields
         focusLostFirstName(mouseEvent);
         focusLostLastName(mouseEvent);
         focusLostEmail(mouseEvent);
@@ -156,8 +200,8 @@ public class LoginViewController {
 
     //used for real time validation
     public boolean validateFirstName() {
-        final String regex = "^.{2,25}$";
-        String userInput = firstNameInput.getText();
+        final String regex = "^.{2,25}$"; //regular expression
+        String userInput = firstNameInput.getText(); //gets text from input
 
         final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
         final Matcher matcher = pattern.matcher(userInput);
@@ -171,9 +215,13 @@ public class LoginViewController {
             return true;
         }
         else {
-            inputWrapperFN.setStyle("-fx-border-color: red");
-            validateImgFN.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
-            alertTextFN.setText("* First name must be 2-25 characters");
+            //only shows warnings if user has attempted to input into the field
+            if(firstNameClicked && firstNameInput.getLength() > 0){
+                inputWrapperFN.setStyle("-fx-border-color: red");
+                validateImgFN.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
+                alertTextFN.setText("* First name must be 2-25 characters");
+                return false;
+            }
             return false;
         }
 
@@ -196,10 +244,14 @@ public class LoginViewController {
             return true;
         }
         else {
-            inputWrapperLN.setStyle("-fx-border-color: red");
-            validateImgLN.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
-            alertTextLN.setText("* Last name must be 2-25 characters");
+            if(lastNameClicked && lastNameInput.getLength() > 0){
+                inputWrapperLN.setStyle("-fx-border-color: red");
+                validateImgLN.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
+                alertTextLN.setText("* Last name must be 2-25 characters");
+                return false;
+            }
             return false;
+
         }
 
     }
@@ -221,10 +273,14 @@ public class LoginViewController {
             return true;
         }
         else {
-            inputWrapperEmail.setStyle("-fx-border-color: red");
-            validateImgEmail.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
-            alertTextEmail.setText("* Email must end with @farmingdale.edu");
+            if(emailClicked && emailInput.getLength() > 0){
+                inputWrapperEmail.setStyle("-fx-border-color: red");
+                validateImgEmail.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
+                alertTextEmail.setText("* Email must end with @farmingdale.edu");
+                return false;
+            }
             return false;
+
         }
 
     }
@@ -245,10 +301,14 @@ public class LoginViewController {
             return true;
         }
         else {
-            inputWrapperDOB.setStyle("-fx-border-color: red");
-            validateImgDOB.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
-            alertTextDOB.setText("* Enter DOB in MM/DD/YYYY format");
+            if(dobClicked && dobInput.getLength() > 0){
+                inputWrapperDOB.setStyle("-fx-border-color: red");
+                validateImgDOB.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
+                alertTextDOB.setText("* Enter DOB in MM/DD/YYYY format");
+                return false;
+            }
             return false;
+
         }
 
     }
@@ -269,13 +329,18 @@ public class LoginViewController {
             return true;
         }
         else {
-            inputWrapperZipCode.setStyle("-fx-border-color: red");
-            validateImgZipCode.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
-            alertTextZipCode.setText("* Enter a 5-digit zip code");
+            if(zipCodeClicked && zipCodeInput.getLength()>0){
+                inputWrapperZipCode.setStyle("-fx-border-color: red");
+                validateImgZipCode.setImage(new Image(getClass().getResource("x.png").toExternalForm()));
+                alertTextZipCode.setText("* Enter a 5-digit zip code");
+                return false;
+            }
             return false;
+
         }
 
     }
+
 
 
 
