@@ -2,7 +2,7 @@
 
 ## Overview
 
-This JavaFX application is a registration form designed with input validations to ensure user data integrity. The form collects essential user information, including First Name, Last Name, Email, Date of Birth, and Zip Code. The application provides real-time feedback on the validity of the input fields and enables the "Register" button only when all inputs are valid.
+This JavaFX application is a registration form that utilizes regular expressions (Regex) to validate user input, ensuring data integrity. The form collects essential user information, including First Name, Last Name, Email, Date of Birth, and Zip Code. The application provides real-time feedback on the validity of the input fields and enables the "Register" button only when all inputs are valid.
 
 ## Features
 
